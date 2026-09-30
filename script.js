@@ -50,52 +50,65 @@ mobilePosBtn?.addEventListener('click', () => {
   mobilePosBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
 });
 
-// Filter groups collapsible in sidebar
-$$('.filter-group button').forEach(b=>b.addEventListener('click',()=>{
-  const g=b.parentElement;
-  g.classList.toggle('open');
-  b.querySelector('span').textContent=g.classList.contains('open')?'−':'+';
-}));
+// Course pill buttons filter logic (both sidebar and header pills)
+const cards = $$('.card');
+const search = $('#searchInput');
 
-const cards=$$('.card'), inputs=$$('.options input[type=checkbox]'), search=$('#searchInput');
-function filter(){
-  const active=inputs.filter(i=>i.checked && i.value).map(i=>i.value);
-  const q=(search?.value||'').toLowerCase().trim();
-  let visibleCount = 0;
-  cards.forEach(c=>{
-    const cat=c.dataset.cat,name=c.dataset.name;
-    const okCat=!active.length||active.includes(cat);
-    const okQ=!q||name.includes(q);
-    const show = okCat && okQ;
-    c.style.display=show?'':'none';
-    if(show) visibleCount++;
+function filterCourses(categoryVal, query) {
+  const q = (query || search?.value || '').toLowerCase().trim();
+  let count = 0;
+  cards.forEach(card => {
+    const cat = card.dataset.cat || '';
+    const name = (card.dataset.name || '').toLowerCase();
+    let matchCat = true;
+    if (categoryVal && categoryVal !== 'all') {
+      matchCat = cat.includes(categoryVal) || name.includes(categoryVal) || (categoryVal === 'pos' && (cat === 'praxis' || cat === 'pos'));
+    }
+    const matchQ = !q || name.includes(q);
+    const visible = matchCat && matchQ;
+    card.style.display = visible ? '' : 'none';
+    if (visible) count++;
   });
   const shownEl = $('#shown');
-  if (shownEl) shownEl.textContent = visibleCount;
+  if (shownEl) shownEl.textContent = count;
 }
-inputs.forEach(i=>i.addEventListener('change',filter));
-search?.addEventListener('input',filter);
-$('#searchForm')?.addEventListener('submit',e=>{e.preventDefault();filter();$('#searchPanel').classList.remove('show')});
+
+$$('.course-pill-btn').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const val = btn.dataset.filter;
+    // Set active style within the button group
+    btn.parentElement.querySelectorAll('.course-pill-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    filterCourses(val);
+  });
+});
+
+search?.addEventListener('input', () => filterCourses());
+$('#searchForm')?.addEventListener('submit', e => {
+  e.preventDefault();
+  filterCourses();
+  $('#searchPanel').classList.remove('show');
+});
 
 // Menu link filtering helpers
 $$('[data-filter]').forEach(link => {
-  link.addEventListener('click', (e) => {
+  if (link.classList.contains('course-pill-btn')) return;
+  link.addEventListener('click', () => {
     const val = link.dataset.filter;
     $('#mobileMenu')?.classList.remove('show');
     closePosGrad();
     if (val) {
-      // Find matching checkbox if exists
-      const targetBox = inputs.find(i => i.value === val);
-      if (targetBox) {
-        inputs.forEach(i => i.checked = false);
-        targetBox.checked = true;
-        filter();
+      filterCourses(val);
+      // Synchronize with active state in sidebar if matching button exists
+      const targetPill = $$('.sidebar-nossos-cursos .course-pill-btn').find(b => b.dataset.filter === val);
+      if (targetPill) {
+        $$('.sidebar-nossos-cursos .course-pill-btn').forEach(b => b.classList.remove('active'));
+        targetPill.classList.add('active');
       }
     }
   });
 });
-
-$$('.area-chips button').forEach(b=>b.addEventListener('click',()=>b.classList.toggle('active')));
 $('#sort')?.addEventListener('change',e=>{
   const arr=[...$('#coursesGrid').children];
   if(e.target.value==='Nome A-Z') arr.sort((a,b)=>a.dataset.name.localeCompare(b.dataset.name,'pt-BR'));
@@ -105,5 +118,20 @@ $('#sort')?.addEventListener('change',e=>{
 $('#loadMore')?.addEventListener('click',e=>{
   e.target.textContent='Todos os cursos exibidos';
   e.target.disabled=true;
+});
+
+// Mobile collapse for Nossos Cursos card in sidebar
+const sidebarNossosCursos = $('#sidebarNossosCursos');
+const sidebarCollapseToggle = $('#sidebarCollapseToggle');
+const sidebarToggleHint = $('.sidebar-toggle-hint');
+
+sidebarCollapseToggle?.addEventListener('click', () => {
+  if (window.innerWidth <= 980) {
+    const isOpen = sidebarNossosCursos?.classList.toggle('is-open');
+    sidebarCollapseToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    if (sidebarToggleHint) {
+      sidebarToggleHint.textContent = isOpen ? 'Toque para recolher' : 'Toque para expandir';
+    }
+  }
 });
 

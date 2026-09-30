@@ -1,23 +1,77 @@
 <!doctype html>
-<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cursos EBRADI: Pós, OAB, MBA. Especialização 100% digital!</title><link rel="stylesheet" href="style.css"></head>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cursos EBRADI: Pós, OAB, MBA</title><meta name="description" content="Especialização 100% digital em Direito. Cursos de Pós-graduação, Preparatório OAB, MBA e formação jurídica de alto nível."><meta property="og:title" content="Cursos EBRADI: Pós, OAB, MBA"><meta property="og:description" content="Especialização 100% digital em Direito. Cursos de Pós-graduação, Preparatório OAB, MBA e formação jurídica de alto nível."><link rel="stylesheet" href="style.css"></head>
 <body>
-<div class="mobile-menu" id="mobileMenu"><button class="close" id="closeMenu">×</button><a href="#">Pós-graduação</a><a href="#">Preparatório para OAB</a><a href="#">Blog</a><a href="#">Corpo Docente</a><a class="mobile-portal" href="#">Portal do Aluno</a></div>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close" id="closeMenu" aria-label="Fechar menu">×</button>
+  <div class="mobile-nav-group">
+    <button class="mobile-dropdown-toggle" id="mobilePosBtn" aria-expanded="false">
+      <span>Pós-graduação</span>
+      <span class="mobile-arrow">▾</span>
+    </button>
+    <div class="mobile-submenu" id="mobilePosSub">
+      <a href="#cursos" class="mobile-subitem" data-filter="pos-12">12 Meses</a>
+      <a href="#cursos" class="mobile-subitem" data-filter="pos-6">06 Meses</a>
+      <a href="#cursos" class="mobile-subitem" data-filter="master">Master Classes</a>
+      <a href="#cursos" class="mobile-subitem highlight-white" data-filter="aovivo">Ao Vivo</a>
+      <a href="#cursos" class="mobile-subitem" data-filter="ives-gandra">Instituto Ives Gandra</a>
+      <a href="#cursos" class="mobile-subitem" data-filter="oab-esa">Oab ESA MG</a>
+      <a href="#cursos" class="mobile-subitem" data-filter="plus">Plus</a>
+    </div>
+  </div>
+  <a href="#cursos" class="mobile-link" data-filter="livre">Cursos Livres</a>
+  <a href="#cursos" class="mobile-link" data-filter="internacional">Internacional</a>
+  <a href="#cursos" class="mobile-link" data-filter="essentials">Cursos Especiais Essencial</a>
+  <a class="mobile-portal" href="#">Portal do Aluno</a>
+</div>
 <header>
   <div class="newsbar"><div class="news-inner"><button class="news-arrow left" aria-label="Notícia anterior">‹</button><div class="news"><span class="youtube-icon">▣</span><span>EBRADI | NEWS: o essencial do mundo jurídico com Bruno Musa. Assista no Youtube agora!</span></div><button class="news-arrow right" aria-label="Próxima notícia">›</button><div class="shortcuts"><a href="#" class="faq-link"><span>♙</span> FAQ</a><a href="#" class="student-link"><span>▣</span> Portal do Aluno</a></div></div></div>
-  <div class="main-header"><div class="container header-inner"><button class="hamb" id="openMenu">☰</button><a class="logo" href="#" aria-label="EBRADI 10 Anos"><img src="https://www.ebradi.com.br/wp-content/uploads/2026/05/EBRADI-10-ANOS.png" alt="EBRADI 10 Anos"></a><nav><a href="#">Pós-graduação</a><a href="#">Preparatório para OAB</a><a href="#">Blog</a><a href="#">Corpo Docente</a></nav><div class="header-search"><button class="search-open" id="openSearch" aria-label="Buscar">⌕</button><span>Buscar</span></div><a class="portal" href="#" aria-label="Atendimento para alunos"><svg class="portal-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 13v-2a8 8 0 0 1 16 0v2"/><path d="M4 13h2.5A1.5 1.5 0 0 1 8 14.5V18H6.5A2.5 2.5 0 0 1 4 15.5V13Z"/><path d="M20 13h-2.5a1.5 1.5 0 0 0-1.5 1.5V18h1.5a2.5 2.5 0 0 0 2.5-2.5V13Z"/><path d="M16 18h-1.5a2.5 2.5 0 0 1-2.5 2.5H10"/></svg><span class="portal-label">Atendimento para alunos</span></a></div></div>
+  <div class="main-header">
+    <div class="container header-inner">
+      <button class="hamb" id="openMenu" aria-label="Menu principal">☰</button>
+      <a class="logo" href="#" aria-label="EBRADI 10 Anos"><img src="https://www.ebradi.com.br/wp-content/uploads/2026/05/EBRADI-10-ANOS.png" alt="EBRADI 10 Anos"></a>
+      <nav class="main-nav" aria-label="Navegação principal">
+        <div class="nav-item has-dropdown" id="posGradItem">
+          <a href="#cursos" class="nav-link dropdown-toggle" id="posGradToggle" aria-haspopup="true" aria-expanded="false">
+            <span>Pós-graduação</span>
+            <svg class="dropdown-arrow" viewBox="0 0 10 6" width="10" height="6" aria-hidden="true" focusable="false">
+              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+          </a>
+          <div class="dropdown-menu" id="posGradMenu" role="menu" aria-label="Submenu Pós-graduação">
+            <a href="#cursos" class="dropdown-item" role="menuitem" data-filter="pos-12">12 Meses</a>
+            <a href="#cursos" class="dropdown-item" role="menuitem" data-filter="pos-6">06 Meses</a>
+            <a href="#cursos" class="dropdown-item" role="menuitem" data-filter="master">Master Classes</a>
+            <a href="#cursos" class="dropdown-item active-white" role="menuitem" data-filter="aovivo">Ao Vivo</a>
+            <a href="#cursos" class="dropdown-item" role="menuitem" data-filter="ives-gandra">Instituto Ives Gandra</a>
+            <a href="#cursos" class="dropdown-item" role="menuitem" data-filter="oab-esa">Oab ESA MG</a>
+            <a href="#cursos" class="dropdown-item" role="menuitem" data-filter="plus">Plus</a>
+          </div>
+        </div>
+        <a href="#cursos" class="nav-link" data-filter="livre">Cursos Livres</a>
+        <a href="#cursos" class="nav-link" data-filter="internacional">Internacional</a>
+        <a href="#cursos" class="nav-link" data-filter="essentials">Cursos Especiais Essencial</a>
+      </nav>
+      <div class="header-search"><button class="search-open" id="openSearch" aria-label="Buscar">⌕</button><span>Buscar</span></div>
+      <a class="portal" href="#" aria-label="Atendimento para alunos"><svg class="portal-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 13v-2a8 8 0 0 1 16 0v2"/><path d="M4 13h2.5A1.5 1.5 0 0 1 8 14.5V18H6.5A2.5 2.5 0 0 1 4 15.5V13Z"/><path d="M20 13h-2.5a1.5 1.5 0 0 0-1.5 1.5V18h1.5a2.5 2.5 0 0 0 2.5-2.5V13Z"/><path d="M16 18h-1.5a2.5 2.5 0 0 1-2.5 2.5H10"/></svg><span class="portal-label">Atendimento para alunos</span></a>
+    </div>
+  </div>
   <div class="search-panel" id="searchPanel"><form id="searchForm"><input id="searchInput" placeholder="Busque o seu Curso, Notícia ou Evento aqui..."><button>→</button></form><div class="top-filters"><b>Filtrar por</b><div class="chips"><a href="#">Curso Livre</a><a href="#">Essentials</a><a href="#">Gratuito</a><a href="#">Internacional</a><a href="#">Law Case</a><a href="#">MBA</a><a href="#">Pós Master Class</a><a href="#">Pós-graduação</a><a href="#">Práxis</a><a href="#">Pré-Venda</a><a href="#">Preparatório OAB</a></div></div></div>
 </header>
-<section class="promo-banner" aria-label="Oferta de cursos premium">
-  <div class="promo-person" aria-hidden="true"></div>
-  <div class="promo-content container">
-    <div class="promo-copy">
-      <span class="promo-kicker">CURSOS PREMIUM</span>
-      <h2>FORMAÇÃO JURÍDICA<br>DE ALTO NÍVEL</h2>
-      <p>Aproveite <strong>50% OFF</strong> em Pós-Graduação e transforme seu futuro.</p>
-    </div>
-    <div class="promo-offer">
-      <strong class="installment-highlight">PARCELE EM ATÉ<br><b>24X NO CARTÃO</b></strong>
-      <a href="#cursos" class="promo-button">Conheça os cursos <span>→</span></a>
+<section class="promo-section" aria-label="Oferta de cursos premium">
+  <div class="container">
+    <div class="promo-banner">
+      <div class="promo-person" aria-hidden="true"></div>
+      <div class="promo-content">
+        <div class="promo-copy">
+          <span class="promo-kicker">CURSOS PREMIUM</span>
+          <h2>FORMAÇÃO JURÍDICA<br>DE ALTO NÍVEL</h2>
+          <p>Aproveite <strong>50% OFF</strong> em Pós-Graduação e transforme seu futuro.</p>
+        </div>
+        <div class="promo-offer">
+          <strong class="installment-highlight">PARCELE EM ATÉ<br><b>24X NO CARTÃO</b></strong>
+          <a href="#cursos" class="promo-button">Conheça os cursos <span>→</span></a>
+        </div>
+      </div>
     </div>
   </div>
 </section>

@@ -1,0 +1,8 @@
+{
+  "name": "Cursos EBRADI: Pós, OAB, MBA",
+  "description": "Especialização 100% digital em Direito. Cursos de Pós-graduação, Preparatório OAB, MBA e formação jurídica de alto nível.",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

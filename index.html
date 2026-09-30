@@ -1,5 +1,202 @@
 <!doctype html>
-<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cursos EBRADI: Pós, OAB, MBA</title><meta name="description" content="Especialização 100% digital em Direito. Cursos de Pós-graduação, Preparatório OAB, MBA e formação jurídica de alto nível."><meta property="og:title" content="Cursos EBRADI: Pós, OAB, MBA"><meta property="og:description" content="Especialização 100% digital em Direito. Cursos de Pós-graduação, Preparatório OAB, MBA e formação jurídica de alto nível."><link rel="stylesheet" href="style.css"></head>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cursos EBRADI: Pós, OAB, MBA</title><meta name="description" content="Especialização 100% digital em Direito. Cursos de Pós-graduação, Preparatório OAB, MBA e formação jurídica de alto nível."><meta property="og:title" content="Cursos EBRADI: Pós, OAB, MBA"><meta property="og:description" content="Especialização 100% digital em Direito. Cursos de Pós-graduação, Preparatório OAB, MBA e formação jurídica de alto nível."><link rel="stylesheet" href="style.css?v=3">
+<style>
+/* Proteção contra cards desproporcionais ou cache no Git */
+.grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 22px 20px !important;
+}
+@media (max-width: 980px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 16px !important;
+  }
+}
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+}
+.card {
+  background: #11232a !important;
+  border: 0 !important;
+  border-radius: 4px !important;
+  overflow: hidden !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, .25) !important;
+  min-width: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  transition: transform .22s ease, box-shadow .22s ease !important;
+  cursor: pointer !important;
+  position: relative !important;
+  height: 100% !important;
+  max-width: 100% !important;
+}
+.card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, .45) !important;
+}
+.thumb {
+  position: relative !important;
+  width: 100% !important;
+  height: 220px !important;
+  min-height: 220px !important;
+  max-height: 220px !important;
+  background: #0f1e25 !important;
+  overflow: hidden !important;
+  flex-shrink: 0 !important;
+}
+.thumb img,
+.professor-img {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+  display: block !important;
+  transition: transform .35s ease !important;
+  z-index: 0 !important;
+}
+.card:hover .thumb img,
+.card:hover .professor-img {
+  transform: scale(1.03) !important;
+}
+.gradient-fade {
+  position: absolute !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  background: linear-gradient(180deg, rgba(17, 35, 42, 0) 45%, rgba(17, 35, 42, .45) 70%, #11232a 100%) !important;
+  z-index: 1 !important;
+}
+.online,
+.badge-online,
+.promo,
+.badge-promo {
+  position: absolute !important;
+  top: 10px !important;
+  padding: 4px 8px !important;
+  border-radius: 2px !important;
+  font-size: 10.5px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  text-transform: uppercase !important;
+  letter-spacing: .3px !important;
+  z-index: 2 !important;
+}
+.online,
+.badge-online {
+  left: 10px !important;
+  right: auto !important;
+  background: #1860c3 !important;
+  color: #fff !important;
+}
+.promo,
+.badge-promo {
+  right: 10px !important;
+  left: auto !important;
+  background: #d92626 !important;
+  color: #fff !important;
+}
+.card-info {
+  padding: 0 16px 14px !important;
+  background: #11232a !important;
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 !important;
+  min-height: 135px !important;
+}
+.course-tag {
+  display: inline-block !important;
+  background: #62b6ab !important;
+  color: #fff !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  letter-spacing: .4px !important;
+  padding: 4px 8px !important;
+  border-radius: 3px !important;
+  margin-bottom: 10px !important;
+  text-transform: uppercase !important;
+  align-self: flex-start !important;
+}
+.card h2,
+.card-title {
+  font-size: 14px !important;
+  line-height: 1.25 !important;
+  margin: 0 0 12px !important;
+  color: #fff !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  letter-spacing: -.1px !important;
+  min-height: 42px !important;
+}
+.duration,
+.card-meta {
+  display: flex !important;
+  align-items: center !important;
+  gap: 14px !important;
+  color: #8da4a9 !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  margin-top: auto !important;
+  padding-bottom: 2px !important;
+}
+.meta-item {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+.meta-icon {
+  width: 14px !important;
+  height: 14px !important;
+  stroke: currentColor !important;
+  flex-shrink: 0 !important;
+}
+.author,
+.card-footer {
+  background: #0b171c !important;
+  padding: 12px 16px !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  border-top: 1px solid rgba(255, 255, 255, .03) !important;
+  margin-top: auto !important;
+  min-height: 46px !important;
+}
+.author-name,
+.author {
+  color: #4d828d !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  letter-spacing: .2px !important;
+  line-height: 1.2 !important;
+  transition: color .2s ease !important;
+}
+.footer-arrow,
+.author b {
+  color: #4d828d !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: color .2s ease, transform .2s ease !important;
+  font-size: 14px !important;
+}
+.card:hover .author-name,
+.card:hover .author {
+  color: #6fb5c3 !important;
+}
+.card:hover .footer-arrow,
+.card:hover .author b {
+  color: #6fb5c3 !important;
+  transform: translateX(3px) !important;
+}
+</style></head>
 <body>
 <div class="mobile-menu" id="mobileMenu">
   <button class="close" id="closeMenu" aria-label="Fechar menu">×</button>
@@ -136,15 +333,15 @@
       <div class="grid" id="coursesGrid">
         <article class="card" data-cat="pos pos-12 master" data-name="direito digital, proteção de dados e inteligência artificial renato opice blum">
           <div class="thumb">
-            <span class="badge-online">ONLINE</span>
-            <span class="badge-promo">50% OFF</span>
+            <span class="badge-online online">ONLINE</span>
+            <span class="badge-promo promo">50% OFF</span>
             <img class="professor-img" src="https://www.ebradi.com.br/wp-content/uploads/2025/01/RenatoOpiceBlum.jpeg" alt="Renato Opice Blum" loading="lazy">
             <div class="gradient-fade" aria-hidden="true"></div>
           </div>
           <div class="card-info">
             <span class="course-tag">PÓS-GRADUAÇÃO</span>
             <h2 class="card-title">DIREITO DIGITAL, PROTEÇÃO DE DADOS E INTELIGÊNCIA ARTIFICIAL</h2>
-            <div class="card-meta">
+            <div class="card-meta duration">
               <span class="meta-item">
                 <svg class="meta-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                 <span>400h</span>
@@ -155,7 +352,7 @@
               </span>
             </div>
           </div>
-          <div class="card-footer">
+          <div class="card-footer author">
             <span class="author-name">RENATO OPICE BLUM</span>
             <span class="footer-arrow" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -165,15 +362,15 @@
 
         <article class="card" data-cat="pos pos-12" data-name="advocacia previdenciária theodoro agostinho">
           <div class="thumb">
-            <span class="badge-online">ONLINE</span>
-            <span class="badge-promo">50% OFF</span>
+            <span class="badge-online online">ONLINE</span>
+            <span class="badge-promo promo">50% OFF</span>
             <img class="professor-img" src="https://www.ebradi.com.br/wp-content/uploads/2026/03/BANNER-MOBILE-12-768x768.png" alt="Theodoro Agostinho" loading="lazy">
             <div class="gradient-fade" aria-hidden="true"></div>
           </div>
           <div class="card-info">
             <span class="course-tag">PÓS-GRADUAÇÃO</span>
             <h2 class="card-title">ADVOCACIA PREVIDENCIÁRIA</h2>
-            <div class="card-meta">
+            <div class="card-meta duration">
               <span class="meta-item">
                 <svg class="meta-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                 <span>400h</span>
@@ -184,7 +381,7 @@
               </span>
             </div>
           </div>
-          <div class="card-footer">
+          <div class="card-footer author">
             <span class="author-name">THEODORO AGOSTINHO</span>
             <span class="footer-arrow" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -194,15 +391,15 @@
 
         <article class="card" data-cat="pos pos-12" data-name="direito processual civil aplicado paulo henrique lucon direito processual aplicado">
           <div class="thumb">
-            <span class="badge-online">ONLINE</span>
-            <span class="badge-promo">50% OFF</span>
+            <span class="badge-online online">ONLINE</span>
+            <span class="badge-promo promo">50% OFF</span>
             <img class="professor-img" src="https://www.ebradi.com.br/wp-content/uploads/2025/01/PauloLucon-768x768.jpg" alt="Paulo Henrique Lucon" loading="lazy">
             <div class="gradient-fade" aria-hidden="true"></div>
           </div>
           <div class="card-info">
             <span class="course-tag">PÓS-GRADUAÇÃO</span>
             <h2 class="card-title">DIREITO PROCESSUAL CIVIL APLICADO</h2>
-            <div class="card-meta">
+            <div class="card-meta duration">
               <span class="meta-item">
                 <svg class="meta-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                 <span>400h</span>
@@ -213,7 +410,7 @@
               </span>
             </div>
           </div>
-          <div class="card-footer">
+          <div class="card-footer author">
             <span class="author-name">PAULO HENRIQUE LUCON</span>
             <span class="footer-arrow" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -223,15 +420,15 @@
 
         <article class="card" data-cat="pos pos-12 master" data-name="advocacia empresarial marcus elidius">
           <div class="thumb">
-            <span class="badge-online">ONLINE</span>
-            <span class="badge-promo">50% OFF</span>
+            <span class="badge-online online">ONLINE</span>
+            <span class="badge-promo promo">50% OFF</span>
             <img class="professor-img" src="https://www.ebradi.com.br/wp-content/uploads/2025/01/MarcusElidius-768x768.jpg" alt="Marcus Elidius" loading="lazy">
             <div class="gradient-fade" aria-hidden="true"></div>
           </div>
           <div class="card-info">
             <span class="course-tag">PÓS-GRADUAÇÃO</span>
             <h2 class="card-title">ADVOCACIA EMPRESARIAL</h2>
-            <div class="card-meta">
+            <div class="card-meta duration">
               <span class="meta-item">
                 <svg class="meta-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                 <span>400h</span>
@@ -242,7 +439,7 @@
               </span>
             </div>
           </div>
-          <div class="card-footer">
+          <div class="card-footer author">
             <span class="author-name">MARCUS ELIDIUS</span>
             <span class="footer-arrow" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -252,15 +449,15 @@
 
         <article class="card" data-cat="pos pos-12 internacional" data-name="direito internacional aplicado flávia piovesan flavia piovesan">
           <div class="thumb">
-            <span class="badge-online">ONLINE</span>
-            <span class="badge-promo">50% OFF</span>
+            <span class="badge-online online">ONLINE</span>
+            <span class="badge-promo promo">50% OFF</span>
             <img class="professor-img" src="https://www.ebradi.com.br/wp-content/uploads/2026/03/BANNER-MOBILE-10-768x768.png" alt="Flávia Piovesan" loading="lazy">
             <div class="gradient-fade" aria-hidden="true"></div>
           </div>
           <div class="card-info">
             <span class="course-tag">PÓS-GRADUAÇÃO</span>
             <h2 class="card-title">DIREITO INTERNACIONAL APLICADO</h2>
-            <div class="card-meta">
+            <div class="card-meta duration">
               <span class="meta-item">
                 <svg class="meta-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                 <span>400h</span>
@@ -271,7 +468,7 @@
               </span>
             </div>
           </div>
-          <div class="card-footer">
+          <div class="card-footer author">
             <span class="author-name">FLÁVIA PIOVESAN</span>
             <span class="footer-arrow" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -281,15 +478,15 @@
 
         <article class="card" data-cat="pos pos-12 master" data-name="direito societário direito societario thales catta preta leal">
           <div class="thumb">
-            <span class="badge-online">ONLINE</span>
-            <span class="badge-promo">50% OFF</span>
+            <span class="badge-online online">ONLINE</span>
+            <span class="badge-promo promo">50% OFF</span>
             <img class="professor-img" src="https://www.ebradi.com.br/wp-content/uploads/2026/03/BANNER-MOBILE-7-1-768x768.png" alt="Thales Catta Preta Leal" loading="lazy">
             <div class="gradient-fade" aria-hidden="true"></div>
           </div>
           <div class="card-info">
             <span class="course-tag">PÓS-GRADUAÇÃO</span>
             <h2 class="card-title">DIREITO SOCIETÁRIO</h2>
-            <div class="card-meta">
+            <div class="card-meta duration">
               <span class="meta-item">
                 <svg class="meta-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                 <span>400h</span>
@@ -300,7 +497,7 @@
               </span>
             </div>
           </div>
-          <div class="card-footer">
+          <div class="card-footer author">
             <span class="author-name">THALES CATTA PRETA LEAL</span>
             <span class="footer-arrow" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>

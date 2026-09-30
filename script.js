@@ -62,15 +62,16 @@ function filterCourses(categoryVal, query) {
     const name = (card.dataset.name || '').toLowerCase();
     let matchCat = true;
     if (categoryVal && categoryVal !== 'all') {
-      matchCat = cat.includes(categoryVal) || name.includes(categoryVal) || (categoryVal === 'pos' && (cat === 'praxis' || cat === 'pos'));
+      matchCat = cat.includes(categoryVal) || name.includes(categoryVal) || (categoryVal === 'pos' && (cat.includes('pos') || cat.includes('praxis')));
     }
     const matchQ = !q || name.includes(q);
     const visible = matchCat && matchQ;
     card.style.display = visible ? '' : 'none';
     if (visible) count++;
   });
-  const shownEl = $('#shown');
-  if (shownEl) shownEl.textContent = count;
+  $$('.shown-count').forEach(el => {
+    el.textContent = count;
+  });
 }
 
 $$('.course-pill-btn').forEach(btn => {

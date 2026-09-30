@@ -718,187 +718,170 @@ a {
 }
 
 .card {
-  background: #172f36;
+  background: #11232a;
   border: 0;
-  border-radius: 2px;
+  border-radius: 4px;
   overflow: hidden;
-  box-shadow: none;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, .25);
   min-width: 0;
-  transition: transform .2s, box-shadow .2s;
-}
-
-.card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, .2);
-}
-
-.thumb {
-  aspect-ratio: 1.12/1;
-  background: #1c3339;
+  display: flex;
+  flex-direction: column;
+  transition: transform .22s ease, box-shadow .22s ease;
+  cursor: pointer;
   position: relative;
 }
 
-.portrait {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, #a8a29a 0%, #8d8378 42%, #233d43 43%, #173038 100%);
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, .45);
+}
+
+.thumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.1 / 1;
+  background: #0f1e25;
   overflow: hidden;
 }
 
-.portrait:before {
-  content: "";
+.professor-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform .35s ease;
+}
+
+.card:hover .professor-img {
+  transform: scale(1.03);
+}
+
+.gradient-fade {
   position: absolute;
-  width: 38%;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  left: 31%;
-  top: 15%;
-  background: linear-gradient(145deg, #d2a17d, #705044 72%);
-  box-shadow: 0 28px 0 8px rgba(40, 31, 27, .65);
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(17, 35, 42, 0) 45%, rgba(17, 35, 42, .45) 70%, #11232a 100%);
 }
 
-.portrait:after {
-  content: "";
+.badge-online,
+.badge-promo {
   position: absolute;
-  left: 20%;
-  right: 20%;
-  height: 45%;
-  bottom: -3%;
-  border-radius: 48% 48% 0 0;
-  background: linear-gradient(135deg, #263d43, #6c7372 55%, #16292e);
-}
-
-.portrait i {
-  position: absolute;
-  z-index: 2;
-  width: 18%;
-  height: 4%;
-  left: 41%;
-  top: 48%;
-  border-radius: 50%;
-  background: rgba(40, 28, 24, .55);
-}
-
-.p2 {
-  background: linear-gradient(180deg, #a7aaa7 0%, #7b8584 45%, #263f45 46%, #183038 100%);
-}
-.p2:before {
-  background: linear-gradient(145deg, #b88969, #4d342c);
-}
-
-.p3 {
-  background: linear-gradient(180deg, #8fa8b3, #667d86 44%, #0f4e5a 45%, #153039);
-}
-.p3:before {
-  background: linear-gradient(145deg, #d9ae8d, #805b49);
-}
-
-.p4 {
-  background: linear-gradient(180deg, #b6ad9e, #8d867a 45%, #203d43 46%, #142e34);
-}
-.p4:before {
-  background: linear-gradient(145deg, #e1b18b, #805846);
-}
-
-.p5 {
-  background: linear-gradient(180deg, #9c9c98, #727875 45%, #294b53 46%, #173239);
-}
-.p5:before {
-  background: linear-gradient(145deg, #bd8b68, #56392e);
-}
-
-.p6 {
-  background: linear-gradient(180deg, #9ca8a8, #727d7d 45%, #24444b 46%, #173239);
-}
-.p6:before {
-  background: linear-gradient(145deg, #c99370, #55392e);
-}
-
-.p7, .p8, .p9, .p10, .p11, .p12 {
-  background: #173139;
-}
-
-.empty:before, .empty:after, .empty i {
-  display: none;
-}
-
-.online, .promo {
-  position: absolute;
-  top: 7px;
-  padding: 4px 6px;
-  border-radius: 1px;
-  font-size: 7px;
+  top: 10px;
+  padding: 4px 8px;
+  border-radius: 2px;
+  font-size: 10.5px;
   font-weight: 800;
   line-height: 1;
   text-transform: uppercase;
+  letter-spacing: .3px;
+  z-index: 2;
 }
 
-.online {
-  left: 7px;
-  background: #fff;
-  color: #1c7090;
+.badge-online {
+  left: 10px;
+  background: #1860c3;
+  color: #fff;
 }
 
-.promo {
-  right: 7px;
-  background: #ef4a3f;
+.badge-promo {
+  right: 10px;
+  background: #d92626;
   color: #fff;
 }
 
 .card-info {
-  padding: 12px 9px 9px;
-  min-height: 125px;
-  background: #172f36;
+  padding: 0 18px 16px;
+  background: #11232a;
   display: flex;
   flex-direction: column;
+  flex: 1;
 }
 
 .course-tag {
   display: inline-block;
-  background: #d1d900;
-  color: #17220e;
-  font-size: 7px;
+  background: #62b6ab;
+  color: #fff;
+  font-size: 11px;
   font-weight: 800;
-  padding: 3px 6px;
-  margin-bottom: 9px;
+  letter-spacing: .4px;
+  padding: 4px 8px;
+  border-radius: 3px;
+  margin-bottom: 12px;
   text-transform: uppercase;
   align-self: flex-start;
 }
 
-.card h2 {
-  font-size: 9px;
+.card-title {
+  font-size: 14.5px;
   line-height: 1.25;
-  margin: 0 0 11px;
+  margin: 0 0 16px;
   color: #fff;
   font-weight: 800;
   text-transform: uppercase;
-  min-height: 23px;
+  letter-spacing: -.1px;
+  min-height: 48px;
 }
 
-.duration {
-  font-size: 8px;
-  color: #a9b6b9;
-  margin-bottom: 9px;
+.card-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: #8da4a9;
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: auto;
+  padding-bottom: 2px;
 }
 
-.author {
-  border-top: 1px solid rgba(255, 255, 255, .04);
-  padding-top: 8px;
-  color: #2ca6bf;
-  font-size: 10px;
-  line-height: 1.05;
-  font-weight: 800;
-  min-height: 25px;
+.meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.meta-icon {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  flex-shrink: 0;
+}
+
+.card-footer {
+  background: #0b171c;
+  padding: 14px 18px;
   display: flex;
   justify-content: space-between;
-  gap: 6px;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, .03);
   margin-top: auto;
 }
 
-.author b {
-  font-size: 13px;
-  font-weight: 400;
-  color: #2ca6bf;
+.author-name {
+  color: #4d828d;
+  font-size: 13.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .2px;
+  line-height: 1.2;
+  transition: color .2s ease;
+}
+
+.footer-arrow {
+  color: #4d828d;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: color .2s ease, transform .2s ease;
+}
+
+.card:hover .author-name {
+  color: #6fb5c3;
+}
+
+.card:hover .footer-arrow {
+  color: #6fb5c3;
+  transform: translateX(3px);
 }
 
 .load-more {
@@ -1708,11 +1691,9 @@ footer {
     align-items: flex-start;
     gap: 12px;
   }
-  .card-info {
-    min-height: 125px;
-  }
-  .card h2 {
-    font-size: 9px;
+  .card-title {
+    font-size: 13.5px;
+    min-height: 42px;
   }
   .newsletter {
     padding: 28px 0;

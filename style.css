@@ -38,7 +38,7 @@ a {
 
 /* Container compartilhado que define o alinhamento de ponta a ponta na página */
 .container {
-  width: min(1340px, calc(100% - 48px));
+  width: min(1180px, calc(100% - 48px));
   margin: 0 auto;
 }
 
@@ -52,12 +52,11 @@ a {
 }
 
 .news-inner {
-  width: 100%;
-  height: 44px;
-  display: grid;
-  grid-template-columns: 44px minmax(0, 1fr) 44px auto;
+  height: 42px;
+  display: flex;
   align-items: center;
-  padding: 0 12px;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .news {
@@ -147,9 +146,9 @@ a {
 .main-header .logo {
   display: flex;
   align-items: center;
-  width: 172px;
-  min-width: 172px;
-  height: 48px;
+  width: 160px;
+  min-width: 160px;
+  height: 44px;
   position: relative;
   flex-shrink: 0;
 }
@@ -158,7 +157,7 @@ a {
   display: block;
   width: 100%;
   height: auto;
-  max-height: 46px;
+  max-height: 44px;
   object-fit: contain;
   object-position: left center;
 }
@@ -166,7 +165,7 @@ a {
 .main-nav {
   position: relative;
   display: flex;
-  gap: 24px;
+  gap: 20px;
   align-items: center;
   height: 100%;
   flex-shrink: 0;
@@ -174,16 +173,16 @@ a {
 
 .main-nav > .nav-link,
 .main-nav > .nav-item > .nav-link {
-  font-size: 14px;
+  font-size: 13.5px;
   font-weight: 500;
   color: #f7f7f7;
   transition: color .18s ease;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   cursor: pointer;
   white-space: nowrap;
-  padding: 14px 0;
+  padding: 12px 0;
   text-decoration: none;
 }
 
@@ -274,7 +273,7 @@ a {
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 15px;
   margin-left: auto;
   flex-shrink: 0;
 }
@@ -282,14 +281,14 @@ a {
 .header-search {
   display: flex;
   align-items: center;
-  gap: 7px;
+  gap: 6px;
   color: #fff;
-  font-size: 14px;
+  font-size: 13px;
   white-space: nowrap;
 }
 
 .search-open {
-  font-size: 25px;
+  font-size: 22px;
   color: #24c4df;
   padding: 0;
   line-height: 1;
@@ -301,15 +300,16 @@ a {
 .portal {
   background: #35c4dc;
   color: #06202e;
-  padding: 12px 20px;
-  border-radius: 5px;
+  padding: 8px 14px;
+  height: 36px;
+  border-radius: 4px;
   font-weight: 700;
-  font-size: 13px;
+  font-size: 12px;
   white-space: nowrap;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 7px;
   text-decoration: none;
   flex-shrink: 0;
   transition: background .18s, transform .18s;
@@ -321,10 +321,10 @@ a {
 }
 
 .portal-icon {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   display: block;
-  flex: 0 0 18px;
+  flex: 0 0 16px;
   fill: none;
   stroke: #061d26;
   stroke-width: 1.8;
@@ -374,7 +374,7 @@ a {
 }
 
 .top-filters {
-  width: min(1340px, calc(100% - 48px));
+  width: min(1180px, calc(100% - 48px));
   margin: 20px auto 0;
   display: flex;
   gap: 22px;
@@ -1704,7 +1704,7 @@ footer {
 
 @media (max-width: 620px) {
   .container {
-    width: min(100% - 28px, 1340px);
+    width: min(100% - 28px, 1180px);
   }
   .newsbar {
     display: none;

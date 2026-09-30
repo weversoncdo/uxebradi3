@@ -6,18 +6,15 @@ $('#openSearch')?.addEventListener('click',()=>$('#searchPanel').classList.toggl
 // Submenu desktop interaction
 const posGradItem = $('#posGradItem');
 const posGradToggle = $('#posGradToggle');
-const posGradMenu = $('#posGradMenu');
 
 function openPosGrad() {
   posGradItem?.classList.add('open');
   posGradToggle?.setAttribute('aria-expanded', 'true');
-  if (posGradMenu) posGradMenu.style.setProperty('display', 'flex', 'important');
 }
 
 function closePosGrad() {
   posGradItem?.classList.remove('open');
   posGradToggle?.setAttribute('aria-expanded', 'false');
-  if (posGradMenu) posGradMenu.style.setProperty('display', 'none', 'important');
 }
 
 posGradToggle?.addEventListener('click', (e) => {

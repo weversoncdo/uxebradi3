@@ -6,22 +6,40 @@ $('#openSearch')?.addEventListener('click',()=>$('#searchPanel').classList.toggl
 // Submenu desktop interaction
 const posGradItem = $('#posGradItem');
 const posGradToggle = $('#posGradToggle');
+const posGradMenu = $('#posGradMenu');
+
+function openPosGrad() {
+  posGradItem?.classList.add('open');
+  posGradToggle?.setAttribute('aria-expanded', 'true');
+  if (posGradMenu) posGradMenu.style.setProperty('display', 'flex', 'important');
+}
+
+function closePosGrad() {
+  posGradItem?.classList.remove('open');
+  posGradToggle?.setAttribute('aria-expanded', 'false');
+  if (posGradMenu) posGradMenu.style.setProperty('display', 'none', 'important');
+}
+
 posGradToggle?.addEventListener('click', (e) => {
   e.preventDefault();
-  posGradItem?.classList.toggle('open');
-  const isOpen = posGradItem?.classList.contains('open');
-  posGradToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  if (posGradItem?.classList.contains('open')) {
+    closePosGrad();
+  } else {
+    openPosGrad();
+  }
 });
+
+posGradItem?.addEventListener('mouseenter', openPosGrad);
+posGradItem?.addEventListener('mouseleave', closePosGrad);
+
 document.addEventListener('click', (e) => {
   if (posGradItem && !posGradItem.contains(e.target)) {
-    posGradItem.classList.remove('open');
-    posGradToggle?.setAttribute('aria-expanded', 'false');
+    closePosGrad();
   }
 });
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && posGradItem) {
-    posGradItem.classList.remove('open');
-    posGradToggle?.setAttribute('aria-expanded', 'false');
+  if (e.key === 'Escape') {
+    closePosGrad();
   }
 });
 
@@ -67,7 +85,7 @@ $$('[data-filter]').forEach(link => {
   link.addEventListener('click', (e) => {
     const val = link.dataset.filter;
     $('#mobileMenu')?.classList.remove('show');
-    posGradItem?.classList.remove('open');
+    closePosGrad();
     if (val) {
       // Find matching checkbox if exists
       const targetBox = inputs.find(i => i.value === val);
